@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connect TikTok — Maillard Analytics</title>
+<style>
+  body { font-family: Georgia, 'Times New Roman', serif; max-width: 560px; margin: 0 auto; padding: 64px 24px; color: #1c1a16; background: #fff; line-height: 1.6; text-align: center; }
+  h1 { font-size: 26px; border-bottom: 3px solid #c9a86c; padding-bottom: 14px; }
+  p { color: #444; font-size: 15px; }
+  .scopes { text-align: left; display: inline-block; font-size: 14px; color: #444; margin: 8px 0 24px; }
+  a.btn { display: inline-block; background: #1c1813; color: #f5f0e8; text-decoration: none; padding: 14px 28px; border-radius: 6px; font-size: 16px; letter-spacing: .02em; }
+  a.btn:hover { background: #33291f; }
+  .meta { color: #767676; font-size: 12.5px; margin-top: 36px; }
+  a { color: #8a6a2f; }
+</style>
+</head>
+<body>
+<h1>Maillard Analytics</h1>
+<p>Private analytics for one creator. Connecting your TikTok account authorizes read-only access to:</p>
+<div class="scopes">
+  &#8226; Your basic profile (name, avatar)<br>
+  &#8226; Your profile info &amp; audience stats<br>
+  &#8226; Your published videos and their performance counts
+</div>
+<br>
+<a class="btn" id="connect" href="#">Connect your TikTok</a>
+<p class="meta">Read-only. Nothing is ever posted to your account.<br>
+<a href="index.html#privacy">Privacy Policy</a> &middot; <a href="index.html#terms">Terms of Service</a></p>
+<script>
+  var authUrl = 'https://www.tiktok.com/v2/auth/authorize/'
+    + '?client_key=sbaw2jwdycnx13q6n4'
+    + '&response_type=code'
+    + '&scope=' + encodeURIComponent('user.info.basic,user.info.profile,user.info.stats,video.list')
+    + '&redirect_uri=' + encodeURIComponent('https://femibrin.github.io/maillard-analytics-policy/callback.html')
+    + '&state=maillard-analytics-demo';
+  document.getElementById('connect').setAttribute('href', authUrl);
+</script>
+</body>
+</html>
